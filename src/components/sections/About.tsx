@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Reveal from "@/components/sections/Reveal";
 
@@ -51,9 +51,7 @@ export default function About() {
             </h2>
 
             <p className="mt-8 max-w-[390px] text-base leading-relaxed text-white/60">
-              We bring people together through nights worth leaving the house
-              for. New faces, unexpected moments and plans that turn into
-              stories.
+              We bring people together through nights li tstahel tkhrjo mn lcomfort zone dyalkoum for. New faces, unexpected moments and plans that turn into stories.
             </p>
           </div>
         </Reveal>
@@ -98,6 +96,3 @@ export default function About() {
     </section>
   );
 }
-
-
-

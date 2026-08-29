@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
@@ -99,7 +99,7 @@ export default function Hero() {
       <div className="relative z-10 w-full">
         <div className="hero-small mb-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-white/40">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
-          Oujda Â· Morocco Â· 2026
+          Oujda · Morocco · 2026
         </div>
 
         <h1
@@ -113,8 +113,7 @@ export default function Hero() {
 
         <div className="mt-10">
           <p className="hero-description max-w-[340px] text-[17px] leading-relaxed text-white/55">
-            We're building a community for people who want to go out, meet
-            people, and experience something different.
+            We're building a community fin t9dro tla9aw bnas jdad, go out, w tjrbo wt3icho des experience jdad w different
           </p>
 
           <a
@@ -136,4 +135,3 @@ export default function Hero() {
     </section>
   );
 }
-
