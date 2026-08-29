@@ -83,7 +83,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen items-end overflow-hidden px-5 pb-10 pt-32"
+      className="relative flex min-h-screen items-start overflow-hidden px-5 pb-10 pt-28 sm:pt-32"
     >
       {/* Glow */}
       <div
@@ -135,3 +135,4 @@ export default function Hero() {
     </section>
   );
 }
+
