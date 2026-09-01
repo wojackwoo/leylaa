@@ -204,7 +204,7 @@ export default function PollsPage() {
           )}
 
           {step === "done" && (
-            <div className="text-center"><div className="mb-6 text-6xl">âœ¨</div><p className="text-sm uppercase tracking-[0.3em] text-black/50">You're in</p><h1 className="mt-4 text-4xl font-semibold sm:text-5xl">{isCinema ? "We'll see you at the movies." : "See you on the dance floor."}</h1><p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-black/60">We'll contact you on WhatsApp with the details and booking time before the tickets are gone.</p><button onClick={() => { setStep("start"); setChoice(null); setMovie(null); setCinemaTime(null); setPartyVibe(null); setMusic(null); setPartyTime(null); setWhatsapp(""); }} className="mt-10 rounded-full border border-black/15 px-6 py-3 text-sm font-medium transition hover:bg-black hover:text-white">Back to Leylaa Polls</button></div>
+            <div className="text-center"><div className="mb-6 text-6xl">âœ¨</div><p className="text-sm uppercase tracking-[0.3em] text-black/50">You're in</p><h1 className="mt-4 text-4xl font-semibold sm:text-5xl">{isCinema ? "We'll see you at the movies." : "See you on the dance floor."}</h1><p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-black/60">We'll contact you on WhatsApp with the details and booking time before the tickets are gone.</p><button onClick={() => { setStep("start"); setChoice(null); setMovie(null); setCinemaTime(null); setPartyVibe(null); setMusic(null); setPartyTime(null); setWhatsapp(""); localStorage.removeItem("leylaa-poll-session"); }} className="mt-10 rounded-full border border-black/15 px-6 py-3 text-sm font-medium transition hover:bg-black hover:text-white">Back to Leylaa Polls</button></div>
           )}
 
           {error && <p className="mx-auto mt-8 max-w-xl rounded-2xl bg-red-50 px-5 py-4 text-center text-sm text-red-700">{error}</p>}
@@ -213,5 +213,6 @@ export default function PollsPage() {
     </main>
   );
 }
+
 
 
