@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "THIS LEYLAA",
+  title: "LEYLAA — Movie Night",
   description:
-    "A community for new people, new nights, and experiences worth remembering.",
+    "LEYLAA Movie Night — Tuner (2025), 02 October 2026, City Club Park, Oujda.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
