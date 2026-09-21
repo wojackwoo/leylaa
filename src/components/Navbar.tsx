@@ -40,7 +40,7 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white"
-          aria-label="Open menu"
+          aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <X size={19} /> : <Menu size={19} />}
         </button>
@@ -49,17 +49,40 @@ export default function Navbar() {
       {open && (
         <div className="absolute left-4 right-4 top-[68px] overflow-hidden rounded-[28px] border border-white/10 bg-black/95 p-6 shadow-2xl backdrop-blur-xl">
           <nav className="flex flex-col">
-            <a href="#about" onClick={() => setOpen(false)} className="border-b border-white/10 py-5 text-2xl font-semibold">
+            <a
+              href="#reserve"
+              onClick={() => setOpen(false)}
+              className="border-b border-white/10 py-5 text-2xl font-semibold"
+            >
+              Movie Night
+            </a>
+            <a
+              href="#about"
+              onClick={() => setOpen(false)}
+              className="border-b border-white/10 py-5 text-2xl font-semibold"
+            >
               What is LEYLAA?
             </a>
-            <a href="#experiences" onClick={() => setOpen(false)} className="border-b border-white/10 py-5 text-2xl font-semibold">
+            <a
+              href="#experiences"
+              onClick={() => setOpen(false)}
+              className="border-b border-white/10 py-5 text-2xl font-semibold"
+            >
               What we do
             </a>
-            <a href="#community" onClick={() => setOpen(false)} className="border-b border-white/10 py-5 text-2xl font-semibold">
+            <a
+              href="#community"
+              onClick={() => setOpen(false)}
+              className="border-b border-white/10 py-5 text-2xl font-semibold"
+            >
               Community
             </a>
-            <a href="https://discord.gg/c5E5JAAkr" target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="mt-6 rounded-full bg-white px-6 py-4 text-center font-bold !text-black">
-              JOIN THE CLUB
+            <a
+              href="#reserve"
+              onClick={() => setOpen(false)}
+              className="mt-6 rounded-full bg-white px-6 py-4 text-center font-bold !text-black"
+            >
+              RESERVE YOUR SPOT
             </a>
           </nav>
         </div>
