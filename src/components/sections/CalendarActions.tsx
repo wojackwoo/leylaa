@@ -38,7 +38,7 @@ export default function CalendarActions() {
       {open && (
         <div className="absolute bottom-[calc(100%+10px)] left-0 right-0 z-30 rounded-[24px] border border-white/10 bg-black/95 p-2 shadow-2xl backdrop-blur-xl">
           <a
-            href="/events/tuner/calendar.ics"
+            href="/events/leylaa-movie-night.ics"
             className="flex min-h-[54px] items-center gap-3 rounded-2xl px-4 transition hover:bg-white/[0.06]"
           >
             <Smartphone size={17} className="text-white/45" />
