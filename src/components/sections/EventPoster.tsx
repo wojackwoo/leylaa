@@ -18,13 +18,13 @@ export default function EventPoster() {
             <ImageOff size={22} />
           </div>
           <p className="mt-5 text-[9px] font-bold uppercase tracking-[0.3em] text-white/30">
-            EVENT POSTER
+            LEYLAA MOVIE NIGHT
           </p>
           <p className="mt-2 text-sm text-white/45">
             1080 × 1350 px
           </p>
           <p className="mt-2 max-w-xs text-[10px] leading-relaxed text-white/25">
-            Add your final poster as /public/events/tuner-announcement.jpg
+            Tuner (2025) · 02 October 2026
           </p>
         </div>
       </div>
