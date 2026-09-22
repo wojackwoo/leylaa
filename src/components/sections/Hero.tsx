@@ -14,7 +14,7 @@ const slides = [
     accent: "TUNER",
     detail: "02.10.2026 · 17:30 · CITY CLUB PARK",
     href: "/events/tuner",
-    cta: "DISCOVER THE NIGHT",
+    cta: "RESERVE MY TICKET",
   },
   {
     eyebrow: "LEYLAA PRESENTS · 02",
@@ -22,7 +22,7 @@ const slides = [
     accent: "OUJDA",
     detail: "A night made for meeting, watching & experiencing.",
     href: "/events/tuner",
-    cta: "SEE THE EVENT",
+    cta: "RESERVE MY TICKET",
   },
 ];
 
