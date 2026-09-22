@@ -27,9 +27,21 @@ export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
   const [slide, setSlide] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [manualPause, setManualPause] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
@@ -69,23 +81,10 @@ export default function Hero() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [reducedMotion]);
 
   useEffect(() => {
-    const timer = paused
-      ? undefined
-      : window.setInterval(() => {
-          setSlide((current) => (current + 1) % slides.length);
-        }, 5500);
-
-    return () => {
-      if (timer) window.clearInterval(timer);
-    };
-  }, [paused]);
-
-  useEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+    if (reducedMotion) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -96,15 +95,26 @@ export default function Hero() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [slide]);
+  }, [slide, reducedMotion]);
+
+  useEffect(() => {
+    if (manualPause || hovered || reducedMotion) return;
+
+    const timer = window.setInterval(() => {
+      setSlide((current) => (current + 1) % slides.length);
+    }, 5500);
+
+    return () => window.clearInterval(timer);
+  }, [manualPause, hovered, reducedMotion]);
 
   const current = slides[slide];
+  const isPaused = manualPause || hovered;
 
   return (
     <section
       ref={sectionRef}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       className="relative flex min-h-screen items-start overflow-hidden px-5 pb-10 pt-28 sm:pt-32"
     >
       <div
@@ -121,17 +131,20 @@ export default function Hero() {
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
             Oujda · Morocco · 2026
           </span>
+
           <div className="flex items-center gap-2">
-            <span>
+            <span aria-live="polite">
               {String(slide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
             </span>
+
             <button
               type="button"
-              aria-label={paused ? "Resume announcement slideshow" : "Pause announcement slideshow"}
-              onClick={() => setPaused((value) => !value)}
+              aria-label={manualPause ? "Resume announcement slideshow" : "Pause announcement slideshow"}
+              aria-pressed={manualPause}
+              onClick={() => setManualPause((value) => !value)}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/45 transition hover:border-white/25 hover:text-white"
             >
-              {paused ? <Play size={13} /> : <Pause size={13} />}
+              {manualPause ? <Play size={13} /> : <Pause size={13} />}
             </button>
           </div>
         </div>
@@ -166,25 +179,31 @@ export default function Hero() {
         </div>
 
         <div className="flex items-center justify-between gap-5">
-          <div className="flex gap-1">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                aria-label={`Show announcement ${index + 1}`}
-                onClick={() => {
-                  setSlide(index);
-                  setPaused(false);
-                }}
-                className="flex h-11 w-11 items-center justify-center rounded-full"
-              >
-                <span
-                  className={`block h-1 rounded-full transition-all ${
-                    index === slide ? "w-10 bg-white" : "w-5 bg-white/20"
-                  }`}
-                />
-              </button>
-            ))}
+          <div className="flex gap-1" role="tablist" aria-label="Event announcements">
+            {slides.map((_, index) => {
+              const active = index === slide;
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  aria-current={active ? "true" : undefined}
+                  aria-label={`Show announcement ${index + 1}`}
+                  onClick={() => {
+                    setSlide(index);
+                    setManualPause(false);
+                  }}
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
+                >
+                  <span
+                    className={`block h-1 rounded-full transition-all ${
+                      active ? "w-10 bg-white" : "w-5 bg-white/20"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-white/25">
