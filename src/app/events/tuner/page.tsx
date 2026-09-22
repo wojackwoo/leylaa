@@ -1,3 +1,4 @@
+import EventPoster from "@/components/sections/EventPoster";
 import ReservationForm from "@/components/sections/ReservationForm";
 import CalendarActions from "@/components/sections/CalendarActions";
 import { CalendarDays, Clock3, MapPin, Navigation, Sparkles } from "lucide-react";
@@ -17,13 +18,7 @@ export default function TunerEventPage() {
           </a>
 
           <div className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.025] shadow-2xl shadow-black">
-            <img
-              src="/events/tuner-announcement.jpg"
-              alt="LEYLAA Movie Night — Tuner (2025)"
-              className="block h-auto w-full"
-              width={1080}
-              height={1350}
-            />
+            <EventPoster />
           </div>
 
           <div className="mt-8 grid gap-px overflow-hidden rounded-[28px] border border-white/10 bg-white/10 sm:grid-cols-3">
