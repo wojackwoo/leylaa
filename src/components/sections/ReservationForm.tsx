@@ -3,7 +3,7 @@ import { ArrowUpRight, MessageCircle } from "lucide-react";
 const WHATSAPP_URL =
   "https://wa.me/212630705942?text=" +
   encodeURIComponent(
-    "Hi LEYLAA 👋 I want to reserve a spot for Movie Night — Tuner (2025) on 02 October 2026."
+    "Hi LEYLAA 👋 I want to reserve my ticket for Movie Night — Tuner (2025) on 02 October 2026."
   );
 
 export default function ReservationForm() {
@@ -24,9 +24,7 @@ export default function ReservationForm() {
           </h2>
 
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/45">
-            No forms. No online payment.
-            <br />
-            Just send us a WhatsApp message and we&apos;ll take it from there.
+            Tap the button. Send us a WhatsApp. We&apos;ll handle the rest.
           </p>
         </div>
 
@@ -37,7 +35,7 @@ export default function ReservationForm() {
             </div>
 
             <p className="mt-6 text-[9px] font-bold uppercase tracking-[0.3em] text-white/30">
-              WHATSAPP RESERVATION
+              TICKET RESERVATION
             </p>
 
             <h3 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.05em]">
@@ -47,8 +45,7 @@ export default function ReservationForm() {
             </h3>
 
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/50">
-              Tap below, send us a message, and our team will reply as soon as
-              possible with the payment and reservation details.
+              
             </p>
 
             <a
@@ -57,7 +54,7 @@ export default function ReservationForm() {
               rel="noreferrer"
               className="mt-7 flex w-full items-center justify-center gap-3 rounded-full bg-white px-6 py-4 text-sm font-bold !text-black transition hover:scale-[1.01] active:scale-95"
             >
-              MESSAGE US ON WHATSAPP
+              RESERVE MY TICKET
               <ArrowUpRight size={18} />
             </a>
 
