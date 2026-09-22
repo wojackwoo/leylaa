@@ -40,6 +40,10 @@ export default function Experiences() {
     const ctx = gsap.context(() => {
       const items = gsap.utils.toArray<HTMLElement>(".experience-item");
 
+      // Keep the original section visible even if ScrollTrigger is delayed
+      // (for example while the hero slideshow is mounting or on slower phones).
+      gsap.set(items, { opacity: 1 });
+
       items.forEach((item, index) => {
         gsap.fromTo(
           item,
@@ -88,7 +92,7 @@ export default function Experiences() {
         {experiences.map((item, index) => (
           <article
             key={item.number}
-            className="experience-item group relative border-t border-white/15 py-8 opacity-0"
+            className="experience-item group relative border-t border-white/15 py-8"
           >
             <div className="flex items-start justify-between">
               <span className="text-[11px] font-medium tracking-[0.2em] text-white/40">
