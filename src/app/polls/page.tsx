@@ -31,6 +31,8 @@ function getSessionId() {
   return id;
 }
 
+export const dynamic = "force-dynamic";
+
 export default function PollsPage() {
   const [step, setStep] = useState<Step>("start");
   const [options, setOptions] = useState<Option[]>([]);
