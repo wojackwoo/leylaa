@@ -25,7 +25,7 @@ export default function ReservationForm() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Reservation failed.");
       setState("success");
-      setMessage("Reservation received. We’ll send you a WhatsApp message ASAP to arrange payment and confirm your spot.");
+      setMessage("Reservation received. We’ll send you a WhatsApp message ASAP to arrange payment and confirm your reservation.");
       setForm({ fullName: "", phone: "" });
     } catch (error) {
       setState("error");
@@ -146,7 +146,7 @@ export default function ReservationForm() {
             <div className="flex items-start justify-between gap-5">
               <div>
                 <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-white/30">LEYLAA · MOVIE NIGHT</p>
-                <h3 className="mt-3 text-4xl font-black uppercase leading-none tracking-[-0.06em]">You’re<br />confirmed.</h3>
+                <h3 className="mt-3 text-4xl font-black uppercase leading-none tracking-[-0.06em]">Reservation<br />received.</h3>
               </div>
               <button type="button" onClick={() => setState("idle")} className="rounded-full border border-white/10 p-2 text-white/40 transition hover:text-white" aria-label="Close confirmation">
                 <X size={17} />
