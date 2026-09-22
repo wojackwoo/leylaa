@@ -49,7 +49,6 @@ export default function Experiences() {
           item,
           {
             y: 50,
-            opacity: 0,
           },
           {
             y: 0,
