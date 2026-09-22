@@ -4,11 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  ArrowDown,
   ArrowUpRight,
   BusFront,
   CalendarDays,
-  Check,
   Clock3,
   Film,
   Languages,
@@ -110,7 +108,6 @@ export default function TunerGuestGuide() {
   const root = useRef<HTMLElement>(null);
   const hero = useRef<HTMLDivElement>(null);
   const poster = useRef<HTMLDivElement>(null);
-  const mapCard = useRef<HTMLDivElement>(null);
   const [language, setLanguage] = useState<Language>("en");
   const [posterFailed, setPosterFailed] = useState(false);
 
@@ -297,43 +294,48 @@ export default function TunerGuestGuide() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#070707] p-5 sm:p-8">
-            <div className="relative h-full min-h-[290px] overflow-hidden rounded-[22px] border border-white/10 bg-black">
-              <div className="absolute inset-0 opacity-50">
-                <div className="absolute left-[8%] top-[25%] h-px w-[78%] rotate-[11deg] bg-white/[0.10]" />
-                <div className="absolute left-[3%] top-[72%] h-px w-[95%] rotate-[-8deg] bg-white/[0.07]" />
-                <div className="absolute left-[38%] top-[-10%] h-[120%] w-px rotate-[24deg] bg-white/[0.07]" />
-                <div className="absolute right-[18%] top-[-10%] h-[125%] w-px rotate-[63deg] bg-white/[0.065]" />
+          <div className="rounded-[28px] border border-white/10 bg-[#0b0b0b] p-5 sm:p-8">
+            <div className="flex min-h-[290px] flex-col justify-center rounded-[22px] border border-white/10 bg-[#111111] px-5 py-8 sm:min-h-[290px] sm:px-8">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-[8px] font-black uppercase tracking-[0.22em] text-white/35">{t.route}</span>
+                <MapPin size={15} className="text-white/30" />
               </div>
 
-              <div className="map-pulse absolute left-[17%] top-[32%] h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#d7ff3f]/50" />
-              <div className="absolute left-[17%] top-[32%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ff3f] shadow-[0_0_22px_rgba(215,255,63,0.55)]" />
+              <div className="mt-16 flex items-center gap-4 sm:mt-20 sm:gap-6">
+                <div className="min-w-0 flex-1">
+                  <div className="mb-3 flex items-center gap-2">
+                    <span className="map-pulse h-3.5 w-3.5 shrink-0 rounded-full bg-[#d7ff3f] shadow-[0_0_20px_rgba(215,255,63,0.5)]" />
+                    <span className="text-[9px] font-black uppercase tracking-[0.18em] text-white">
+                      EST ENTREE
+                    </span>
+                  </div>
+                  <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/30">{t.meetTime}</p>
+                </div>
 
-              <div className="absolute right-[17%] top-[68%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_22px_rgba(255,255,255,0.7)]" />
+                <div className="relative min-w-0 flex-[1.35]">
+                  <div className="route-line h-[2px] w-full bg-[repeating-linear-gradient(90deg,rgba(215,255,63,0.9)_0_9px,transparent_9px_18px)] bg-[length:36px_2px]" />
+                  <span className="route-dot absolute left-[18%] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-white shadow-[0_0_16px_rgba(255,255,255,0.55)]" />
+                </div>
 
-              <div
-                ref={mapCard}
-                className="route-line absolute left-[17%] top-[32%] h-[2px] w-[65%] -rotate-[22deg] bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.65)_0_10px,transparent_10px_18px)] bg-[length:36px_2px]"
-              />
-
-              <div className="route-dot absolute left-[22%] top-[36%] h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_16px_rgba(255,255,255,0.6)]" />
-
-              <div className="absolute left-4 top-4 right-4 flex items-center justify-between gap-3">
-                <span className="rounded-full border border-white/10 bg-black/75 px-3 py-2 text-[8px] font-black uppercase tracking-[0.22em] text-white/45 backdrop-blur-xl">
-                  {t.route}
-                </span>
-                <MapPin size={15} className="text-white/35" />
+                <div className="min-w-0 flex-1 text-right">
+                  <div className="mb-3 flex items-center justify-end gap-2">
+                    <span className="text-[9px] font-black uppercase tracking-[0.18em] text-white">
+                      CITY CLUB PARK
+                    </span>
+                    <span className="h-3.5 w-3.5 shrink-0 rounded-full bg-white shadow-[0_0_16px_rgba(255,255,255,0.55)]" />
+                  </div>
+                  <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/30">{t.eventTime}</p>
+                </div>
               </div>
 
-              <div className="absolute bottom-5 left-5">
-                <p className="text-[8px] font-bold uppercase tracking-[0.22em] text-white/25">{t.meeting}</p>
-                <p className="mt-1 text-[11px] font-black uppercase">EST ENTREE</p>
-              </div>
-
-              <div className="absolute bottom-5 right-5 text-right">
-                <p className="text-[8px] font-bold uppercase tracking-[0.22em] text-white/25">{t.event}</p>
-                <p className="mt-1 text-[11px] font-black uppercase">CITY CLUB PARK</p>
-              </div>
+              <a
+                href={MEETING_MAPS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-16 self-center text-[8px] font-black uppercase tracking-[0.18em] text-white/35 underline underline-offset-4 transition hover:text-white sm:mt-20"
+              >
+                {t.openMap}
+              </a>
             </div>
           </div>
         </div>
@@ -386,68 +388,23 @@ export default function TunerGuestGuide() {
           ].map(({ title, value, icon: Icon }) => (
             <article
               key={title}
-              className="brief-reveal group relative min-h-[220px] overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.025] p-6 sm:min-h-[250px] sm:p-7"
+              className="brief-reveal group relative min-h-[220px] overflow-hidden rounded-[28px] border border-white/10 bg-[#151515] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:bg-[#1a1a1a] sm:min-h-[250px] sm:p-7"
             >
               <Icon
                 size={118}
                 strokeWidth={1}
-                className="pointer-events-none absolute -bottom-5 -right-2 text-white/[0.09] transition duration-700 group-hover:scale-105 group-hover:text-white/[0.13]"
+                className="pointer-events-none absolute -bottom-4 -right-1 text-white/[0.17] transition duration-700 group-hover:scale-105 group-hover:text-white/[0.23]"
                 aria-hidden="true"
               />
               <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-black text-white shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
                   <Icon size={21} />
                 </div>
-                <p className="mt-7 text-[9px] font-black uppercase tracking-[0.24em] text-white/30">{title}</p>
-                <p className="mt-2 text-2xl font-black uppercase tracking-[-0.04em]">{value}</p>
+                <p className="mt-7 text-[9px] font-black uppercase tracking-[0.24em] text-white/55">{title}</p>
+                <p className="mt-2 text-2xl font-black uppercase tracking-[-0.04em] text-white">{value}</p>
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="relative z-10 mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20">
-        <div className="brief-reveal overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03]">
-          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_0.8fr] lg:p-10">
-            <div>
-              <p className="text-[9px] font-black uppercase tracking-[0.28em] text-white/30">{t.brief}</p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {[
-                  [t.meetTime, t.meetingPlace],
-                  [t.eventTime, t.venue],
-                  ["80 DH", t.transport],
-                  ["80 DH", t.snacks],
-                ].map(([time, label]) => (
-                  <div key={label} className="rounded-2xl border border-white/10 bg-black p-4">
-                    <p className="text-lg font-black tracking-[-0.04em]">{time}</p>
-                    <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.18em] text-white/30">{label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-between gap-8 rounded-[24px] border border-white/10 bg-black p-6 sm:p-7">
-              <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black">
-                  <Clock3 size={20} />
-                </div>
-                <h2 className="mt-6 text-4xl font-black uppercase leading-[0.84] tracking-[-0.06em]">
-                  {t.ask}
-                </h2>
-                <p className="mt-4 text-sm text-white/40">{t.askSub}</p>
-              </div>
-
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-[54px] items-center justify-between rounded-full bg-white px-5 text-[9px] font-black uppercase tracking-[0.18em] !text-black transition hover:scale-[1.01] active:scale-[0.99]"
-              >
-                {t.whatsapp}
-                <ArrowUpRight size={15} />
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
