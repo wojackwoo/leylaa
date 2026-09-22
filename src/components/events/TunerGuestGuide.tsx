@@ -228,7 +228,7 @@ export default function TunerGuestGuide() {
       <section className="relative z-10 mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6 sm:pb-20 sm:pt-16">
         <div ref={hero} className="max-w-4xl">
           <div className="mb-6 flex items-center gap-3 text-white/35">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-[#d7ff3f]">
               <Sparkles size={13} />
             </span>
             <span className="text-[9px] font-black uppercase tracking-[0.28em]">{t.welcome}</span>
@@ -239,7 +239,7 @@ export default function TunerGuestGuide() {
           </h1>
 
           <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/45">{t.heroSub}</p>
+            <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/45"><span className="h-1.5 w-1.5 rounded-full bg-[#d7ff3f]" aria-hidden="true" />{t.heroSub}</p>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/25">{t.date}</p>
           </div>
         </div>
@@ -306,8 +306,8 @@ export default function TunerGuestGuide() {
                 <div className="absolute right-[18%] top-[-10%] h-[125%] w-px rotate-[63deg] bg-white/[0.065]" />
               </div>
 
-              <div className="map-pulse absolute left-[17%] top-[32%] h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30" />
-              <div className="absolute left-[17%] top-[32%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_22px_rgba(255,255,255,0.7)]" />
+              <div className="map-pulse absolute left-[17%] top-[32%] h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#d7ff3f]/50" />
+              <div className="absolute left-[17%] top-[32%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ff3f] shadow-[0_0_22px_rgba(215,255,63,0.55)]" />
 
               <div className="absolute right-[17%] top-[68%] h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_22px_rgba(255,255,255,0.7)]" />
 
